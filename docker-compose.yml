@@ -1,0 +1,8 @@
+version: '3.6'
+services:
+  dev-env:
+    image: cadizm/dev-env
+    security_opt:
+      - seccomp:unconfined
+    volumes:
+      - $PWD:/src
