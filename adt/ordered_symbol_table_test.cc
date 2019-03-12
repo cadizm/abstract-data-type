@@ -33,6 +33,19 @@ class OrderedSymbolTableTest : public ::testing::Test {
   OrderedSymbolTable<string, string> st;
 };
 
+TEST_F(OrderedSymbolTableTest, PutTest) {
+  OrderedSymbolTable<int, int> temp;
+  ASSERT_TRUE(temp.isEmpty());
+
+  temp.put(1, 2);
+  ASSERT_EQ(temp.size(), 1);
+  ASSERT_EQ(*temp.get(1), 2);
+
+  temp.put(1, 3);
+  ASSERT_EQ(temp.size(), 1);
+  ASSERT_EQ(*temp.get(1), 3);
+}
+
 TEST_F(OrderedSymbolTableTest, GetTest) {
   ASSERT_EQ(*st.get("09:00:03"), "Phoenix");
   ASSERT_EQ(st.get("JUMANJI"), nullptr);
